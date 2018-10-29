@@ -1,0 +1,55 @@
+<% include partials/header.ejs %>
+<main>
+    <div class="news_edit">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="current-img">
+                        <img src="<%= img %>" />
+                    </div>
+                    <form action="/news_edit" method="POST" enctype="multipart/form-data" >
+                        <div class="form-group">
+                            <label for="title">TITLE</label>
+                            <input type="text" name="title" class="form-control" value="<%= headline %>"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">CONTENT</label>
+                            <textarea type='text' name="content" class="form-control" rows="10" class="editable"><%= content %></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="news_img">IMAGE</label>
+                            <small>Leave this if you don't want to change the photo</small>
+                            <input type="file" name="news_img" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">CATEGORY</label>
+                            <select name="category">
+                                <option>HTML</option>
+                                <option>CSS</option>
+                                <option>JAVASCRIPT</option>
+                                <option>PHP</option>
+                                <option>PYTHON</option>
+                            </select>
+                            <script>
+                                if(document.querySelector("select")){
+                                    let optionArr = document.querySelector("select").children;
+                                    for(let i=0; i<optionArr.length; i++){
+                                        if(optionArr[i].innerHTML == "<%= category %>"){
+                                            optionArr[i].setAttribute("selected", "selected");
+                                        }
+                                    }
+                                }
+                            </script>
+                        <div class="form-group" style="display: none; overflow: hidden;">
+                            <input name="id" value="<%= id %>"/>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit">UPDATE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<% include partials/footer.ejs %>

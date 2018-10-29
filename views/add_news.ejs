@@ -1,0 +1,42 @@
+<% include partials/header.ejs %>
+
+	<main>
+		<div class="add_news">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<%= typeof msg!='undefined' ? msg : '' %>
+						<form action="./add_news" method="post" enctype="multipart/form-data" >
+							<div class="form-group">
+								<label for="title">TITLE</label>
+								<input type="text" name="title" class="form-control" />
+							</div>
+							<div class="form-group">
+								<label for="content">CONTENT</label>
+								<textarea type='text' name="content" class="form-control editable" rows="10"></textarea>
+							</div>
+							<div class="form-group">
+								<label for="news_img">IMAGE</label>
+								<input type="file" name="news_img" class="form-control"/>
+							</div>
+							<div class="form-group">
+								<label for="category">CATEGORY</label>
+								<select name="category">
+									<option>HTML</option>
+									<option>CSS</option>
+									<option>JAVASCRIPT</option>
+									<option>PHP</option>
+									<option>PYTHON</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<button type="submit">PUBLISH</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+<% include partials/footer.ejs %>

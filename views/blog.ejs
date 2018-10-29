@@ -1,0 +1,148 @@
+<% include partials/header.ejs %>
+
+	<main>
+	
+		<div class="blog">
+		
+			<div class="page-head text-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="page-head-title">BLOG</div>
+							<div class="page-head-short-desc">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc placerat, nisi ac maximus lacinia, justo nibh pharetra quam, eu malesuada neque mi mattis neque.</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="page-description">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<p>Aliquam ac mauris sed nisl eleifend tincidunt sit amet eget magna. Donec turpis ligula, tincidunt ut malesuada ac, tincidunt in dui. Donec eu volutpat mi, nec condimentum est. Aenean pulvinar commodo nisi, nec dapibus odio lobortis et. Phasellus a maximus nibh, at vestibulum ante. Integer odio justo, pharetra eget pretium at, placerat nec massa.</p>
+							<p>Nulla facilisis, nulla eu varius efficitur, ipsum erat pharetra ex, sed congue dolor urna vel felis. Ut commodo eros vitae quam molestie auctor. Curabitur sed justo sit amet metus sollicitudin ullamcorper at ut est. In tincidunt, nibh in sagittis porta, ipsum lacus vehicula metus, sit amet molestie velit turpis eget mi.</p>
+						</div>
+					</div>
+				</div>
+			</div>	
+		
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-12 blog-side">
+						<div class="blogs-column">
+							<div class="blog-preview">
+
+								<% for(let i=0; i<blogs.length; i++){ %>
+									<div class="blog-preview-single">
+										<div class="blog-preview-img">
+											<img src="<%= blogs[i].imgpath %>" alt="" />
+										</div>
+										<div class="blog-preview-text">
+											<h2><a href="#"><%= blogs[i].title %></a></h2>
+											<div class="blog-misc">
+												<div class="blog-misc-single">
+													<div class="blog-misc-icon"><i class="fas fa-user fa-fw"></i></div>
+													<div class="blog-misc-text"><a href="#"><%= blogs[i].author %></a></div>
+												</div>
+												<div class="blog-misc-single">
+													<div class="blog-misc-icon"><i class="fas fa-folder fa-fw"></i></div>
+													<div class="blog-misc-text"><a href="/blog?page=1&category=<%= blogs[i].category.toLowerCase() %>"><%= blogs[i].category %></a></div>
+												</div>
+												<div class="blog-misc-single">
+													<div class="blog-misc-icon"><i class="far fa-clock fa-fw"></i></div>
+													<div class="blog-misc-text"><%= blogs[i].date %></div>
+												</div>
+												<div class="blog-misc-single">
+													<div class="blog-misc-icon"><i class="far fa-comment-alt fa-fw"></i></div>
+													<div class="blog-misc-text"><a href="#">22 comments</a></div>
+												</div>
+											</div>
+											<div class="blog-excerpt">
+												<% var excerpt = blogs[i].content.slice(0, 200) + "......" %>
+												<%- excerpt %>
+											</div>
+											<div class="blog-read-more"><a href="/blog_single/<%= blogs[i]._id %>">READ MORE</a></div>
+										</div>									
+									</div> <!-- blog-preview-single -->
+								<% } %>
+
+							</div> <!-- blog-preview -->
+							
+							<div class="blog-pagination">
+								<ul class="pagination">
+									<li class="page-item"><a class="page-link" href="./blog<%= previousPage %><%= cat %>"><</a></li>
+									<% for(let i=1; i<(noOfPages + 1); i++){ %>
+										<li class="page-item"><a class="page-link" href="./blog?page=<%=i%><%= cat %>"><%=i%></a></li>
+									<% } %>
+									<li class="page-item"><a class="page-link" href="./blog<%= nextPage %><%= cat %>">></a></li>
+								</ul>
+							</div>
+							
+						</div> <!-- blogs-column -->
+					</div> <!-- .blog-side -->
+					
+					<div class="col-lg-4 col-12 sidebar">
+					
+						<div class="widget">						
+							<div class="widget-search">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Search" />
+									<div class="input-group-append">
+										<button><i class="fas fa-search fa-fw"></i></button>
+									</div>
+								</div>
+							</div>
+						</div> <!-- widget -->
+						
+						<div class="widget">
+							<div class="widget-categories">
+								<h3>BLOG CATEGORIES</h3>
+								<div class="categories-wrapper">
+									<div class="categories-col">
+										<ul>
+											<li><a href="#">HTML</a></li>
+											<li><a href="#">JAVASCRIPT</a></li>
+											<li><a href="#">PHP</a></li>
+											<li><a href="#">MYSQL</a></li>
+											<li><a href="#">MONGO</a></li>
+										</ul>
+									</div>
+									<div class="categories-col">
+										<ul>
+											<li><a href="#">PYTHON</a></li>
+											<li><a href="#">RUBY</a></li>
+											<li><a href="#">C++</a></li>
+											<li><a href="#">C#</a></li>
+											<li><a href="#">REACT</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="widget">
+							<div class="widget-tags">
+								<h3>TAGS</h3>
+								<div class="tags-wrapper">
+									<a href="#">Morbi</a>
+									<a href="#">sodales</a>
+									<a href="#">mauris</a>
+									<a href="#">ullamcorper</a>
+									<a href="#">Nulla</a>
+									<a href="#">elementum</a>
+									<a href="#">lacinia</a>
+									<a href="#">tincidunt</a>
+									<a href="#">feugiat</a>
+								</div>
+							</div>
+						</div>
+						
+					</div> <!-- sidebar -->
+				</div>
+			</div>
+		
+		</div> <!-- blog -->
+	
+	</main>
+
+<% include partials/footer.ejs %>

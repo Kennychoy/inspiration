@@ -1,0 +1,24 @@
+<% include partials/header.ejs %>
+<main>
+    <div class="news_list">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <%- messages('messages', locals) %>
+                    <ul>
+                        <% for(let i=0; i<result.length; i++){ %>
+                            <li>
+                                <div class="news_list_title"><%= result[i].title %></div>
+                                <div class="news_edit_delete">
+                                    <a href="/news_edit/<%= result[i]._id %>" class="btn btn-success">Edit</a>
+                                    <a href="/news_delete/<%= result[i]._id %>" class="btn btn-danger">Delete</a>
+                                </div>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<% include partials/footer.ejs %>

@@ -1,0 +1,14 @@
+<% include partials/header.ejs %>
+
+	<main>
+        <%= user %>
+        <%= user ? "logged in" : "not logged in" %>
+        
+        <% if(user){ %>
+            <h1>foo</h1>
+          <% } else{ %>  
+            <h1>bar</h1>
+         <% } %>
+	</main>
+
+<% include partials/footer.ejs %>

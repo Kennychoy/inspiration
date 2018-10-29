@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="/slick-1.8.1/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="/slick-1.8.1/slick/slick-theme.css"/>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.3/js/medium-editor.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.3/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="/stylesheets/stylesheet.css">
+	
+	<title><%= title %></title>
+</head>
+<body>
+
+	<header>
+		<div class="container">
+			<nav class="navbar navbar-expand-md">
+			
+				<a class="navbar-brand" href="/">
+					<img src="/images/logo.png" alt="" />
+				</a>
+				
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<div class="collapse navbar-collapse" id="main-nav">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="/">HOME</a></li>
+						<li class="nav-item"><a class="nav-link" href="/about-us">ABOUT US</a></li>
+						<li class="nav-item"><a class="nav-link" href="/service">SERVICES</a></li>
+						<li class="nav-item"><a class="nav-link" href="/portfolio">PORTFOLIO</a></li>
+						<li class="nav-item"><a class="nav-link" href="/blog">BLOG</a></li>
+						<li class="nav-item"><a class="nav-link" href="/contact">CONTACT</a></li>
+						<% if(user) { %>
+							<li class="nav-item"><a class="nav-link" href="/add_news">Add News</a></li>
+							<li class="nav-item"><a class="nav-link" href="/news_list">Show News</a></li>
+							<li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+						<% } else {%>
+							<li class="nav-item"><a class="nav-link" href="/login">Log in</a></li>
+							<li class="nav-item"><a class="nav-link" href="/sign-up">Sign up</a></li>
+						<% } %>
+					</ul>
+				</div>
+				
+			</nav>
+		</div>
+	</header>

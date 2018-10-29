@@ -1,0 +1,47 @@
+<% include partials/header.ejs %>
+
+	<main>
+	
+		<div class="sign-up">
+			<div class="container">
+				<div class="row">
+					<div class="offset-md-4 col-md-4 offset-sm-3 col-sm-6 col-12">
+						<% if(errors != null){ %>
+							<% for(let i=0; i<errors.length; i++){ %>
+								<p><%= errors[i].msg %></p>
+							<% } %>
+						<% } %>
+						<%- messages('messages', locals) %>						
+						<form action="./sign-up" method="POST">
+							<fieldset>
+								<legend>Sign Up</legend>
+								<div class="form-group">
+									<label for="username">username</label>
+									<input type="text" class="form-control" name="username" />
+								</div>
+								<div class="form-group">
+									<label for="email">Email</label>
+									<input type="email" class="form-control" name="email" />
+								</div>
+								<div class="form-group">
+									<label for="email">Password</label> <small>(Pwd should be at least 6 characters)</small>
+									<input type="password" class="form-control" name="password" />
+								</div>
+								<div class="form-group">
+									<label for="email">Re-Enter Password</label>
+									<input type="password" class="form-control" name="confirmpassword" />
+								</div>
+								<div class="btns-group">									
+									<button type="submit">SUBMIT</button>
+									<button type="reset">RESET</button>
+								</div>
+							</fieldseet>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</main>
+
+<% include partials/footer.ejs %>
