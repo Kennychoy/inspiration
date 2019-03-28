@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://inspiration:inspiration999@ds121593.mlab.com:21593/inspiration", { useNewUrlParser: true });
+mongoose.connect(`mongodb://{process.env.DB_NAME}:{process.env.DB_PWD}@ds121593.mlab.com:21593/inspiration`, { useNewUrlParser: true });
 var NewsModel = require("../models/newsmodel");
 
 router.get("/", (req, res, next) => {
